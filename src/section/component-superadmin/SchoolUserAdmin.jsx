@@ -70,7 +70,7 @@ export default class SchoolUserAdmin extends Component {
           Common.API_URL + "school/all",
           {
             page: 1,
-            per_page: 1,
+            per_page: 15,
             search_value: search,
           },
           Common.options
@@ -263,18 +263,19 @@ export default class SchoolUserAdmin extends Component {
   }
 
   render() {
-    const { isOpenModal } = this.state;
-    const { isOpenModalDelete } = this.state;
+    const {
+      isOpenModal,
+      isOpenModalDelete,
+      msg,
+      data,
+      defaultSchool,
+      list_school,
+      user_id,
+      username,
+      firstname,
+      lastname,
+    } = this.state;
 
-    const { msg } = this.state;
-    const { data } = this.state;
-    const { defaultSchool } = this.state;
-    const { list_school } = this.state;
-
-    const { user_id } = this.state;
-    const { username } = this.state;
-    const { firstname } = this.state;
-    const { lastname } = this.state;
     return (
       <div>
         <Row>
@@ -296,7 +297,6 @@ export default class SchoolUserAdmin extends Component {
             <Row>
               <Col sm={8}>ผู้ดูแลระบบโรงเรียน</Col>
               <Col sm={4}>
-                {" "}
                 <div align="right">
                   <Button
                     onClick={(e) => [
